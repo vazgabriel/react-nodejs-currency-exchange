@@ -1,9 +1,9 @@
-import { IsNotEmpty } from 'class-validator';
+import { IsNotEmpty, Min, MaxLength } from 'class-validator';
 import {
   Column,
   CreateDateColumn,
   Entity,
-  ManyToOne,
+  OneToMany,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
@@ -16,25 +16,27 @@ export class Currency {
 
   @Column({ length: 255 })
   @IsNotEmpty()
+  @MaxLength(255)
   currencyName: string;
 
   @Column({ length: 10 })
   @IsNotEmpty()
+  @MaxLength(10)
   currencySymbol: string;
 
   @Column({ type: 'float' })
   @IsNotEmpty()
+  @Min(0)
   currencyDolarValue: number;
 
   @Column({ default: true })
   isActive: boolean;
 
-  @ManyToOne(
+  @OneToMany(
     type => Country,
-    country => country.currencies,
-    { nullable: false }
+    country => country.currency
   )
-  country: Country;
+  countries: Country[];
 
   @Column()
   @CreateDateColumn()

@@ -6,5 +6,9 @@
   "EMAIL_INUSE": "Correo electrónico ya en uso",
   "OLD_PASS_NOT_VALID": "La contraseña anterior no es válida",
   "PASS_UPDATED": "Contraseña actualizada con éxito",
-  "INTERNAL_ERROR": "Se ha producido un error interno, los monos entrenados ya están solucionando su problema"
+  "INTERNAL_ERROR": "Se ha producido un error interno, los monos entrenados ya están solucionando su problema",
+  "CURRENCY_INVALID": "Moneda no valida",
+  "COUNTRY_INVALID": "Pais no valido",
+  "RECORD_NOT_FOUND": "Registro no encontrado",
+  "RECORD_REMOVED": "Registro eliminado con éxito"
 }

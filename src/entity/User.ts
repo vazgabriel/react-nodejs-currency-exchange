@@ -1,6 +1,6 @@
 import * as bcrypt from 'bcryptjs';
 import { Exclude } from 'class-transformer';
-import { IsEmail, IsNotEmpty, Length } from 'class-validator';
+import { IsEmail, IsNotEmpty, Length, MaxLength } from 'class-validator';
 import {
   BeforeInsert,
   Column,
@@ -17,10 +17,12 @@ export class User {
 
   @Column({ length: 255 })
   @IsNotEmpty()
+  @MaxLength(255)
   name: string;
 
   @Column({ unique: true, length: 255 })
   @IsEmail()
+  @MaxLength(255)
   email: string;
 
   @Exclude()
@@ -29,6 +31,7 @@ export class User {
   password: string;
 
   @Column({ default: 'en-US', length: 5, type: 'char' })
+  @Length(5, 5)
   lang: string;
 
   @Column({ type: 'enum', enum: ['user', 'admin'], default: 'user' })

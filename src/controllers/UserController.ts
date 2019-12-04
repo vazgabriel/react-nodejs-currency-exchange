@@ -49,18 +49,8 @@ export default class UserController {
     res: Response,
     next: NextFunction
   ) => {
-    // Get ID from JWT
-    const id = res.locals.jwtPayload.id;
-
-    const userRepository = getRepository(User);
-
-    // Get user from the database
-    let user: User;
-    try {
-      user = await UserController.getUserById(id, userRepository);
-    } catch (error) {
-      return res.status(401).json({ message: res.__('USER_NOT_FOUND') });
-    }
+    // Get user from the Middleware decoded
+    let user: User = res.locals.logged as User;
 
     let somethingChange = false;
     const body = { ...req.body };
@@ -77,13 +67,15 @@ export default class UserController {
       })
     );
 
+    const userRepository = getRepository(User);
+
     if (somethingChange) {
       try {
         await userRepository.save(user);
       } catch (error) {
-        return res.status(400).json({ message: res.__('INTERNAL_ERROR') });
+        return res.status(500).json({ message: res.__('INTERNAL_ERROR') });
       }
-      user = await UserController.getUserById(id, userRepository);
+      user = await UserController.getUserById(user.id, userRepository);
     }
 
     res.status(200).json({ user: classToPlain(user) });

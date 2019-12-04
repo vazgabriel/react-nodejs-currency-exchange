@@ -13,7 +13,8 @@
 3. Setup database settings inside `ormconfig.json` file (Remember to have your database created)
 4. Copy `src/config/config_template.ts` file to `src/config/config.ts`
 5. Setup extra settings inside `src/config/config.ts` file
-6. Run `yarn start` command
+6. Run Migrations (Add some Currencies, Countries and a Admin User)
+7. Run `yarn start` command
 
 ```
 yarn
@@ -21,5 +22,6 @@ cp ormconfig_template.json ormconfig.json
 nano ormconfig.json
 cp src/config/config_template.ts src/config/config.ts
 nano src/config/config.ts
+yarn run migration:run
 yarn start
 ```

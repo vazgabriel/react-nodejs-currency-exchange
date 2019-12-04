@@ -6,5 +6,9 @@
   "EMAIL_INUSE": "Email already in use",
   "OLD_PASS_NOT_VALID": "Old password is not valid",
   "PASS_UPDATED": "Password successfully updated",
-  "INTERNAL_ERROR": "An internal error has occurred, trained monkeys are already troubleshooting"
+  "INTERNAL_ERROR": "An internal error has occurred, trained monkeys are already troubleshooting",
+  "CURRENCY_INVALID": "Currency not valid",
+  "COUNTRY_INVALID": "Country not valid",
+  "RECORD_NOT_FOUND": "Record not found",
+  "RECORD_REMOVED": "Record removed successfully"
 }
