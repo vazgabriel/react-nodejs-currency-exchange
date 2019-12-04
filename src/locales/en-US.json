@@ -1,0 +1,10 @@
+{
+  "AUTH_FAIL": "Email or password is invalid",
+  "PASS_LESS_6": "The password should have at least 6 characters",
+  "USER_NOT_FOUND": "User not found",
+  "USER_INVALID": "User not valid",
+  "EMAIL_INUSE": "Email already in use",
+  "OLD_PASS_NOT_VALID": "Old password is not valid",
+  "PASS_UPDATED": "Password successfully updated",
+  "INTERNAL_ERROR": "An internal error has occurred, trained monkeys are already troubleshooting"
+}

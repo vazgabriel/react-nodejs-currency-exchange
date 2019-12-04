@@ -1,0 +1,10 @@
+{
+  "AUTH_FAIL": "El correo electrónico o la contraseña no son válidos",
+  "PASS_LESS_6": "La contraseña debe tener al menos 6 caracteres",
+  "USER_NOT_FOUND": "Usuario no encontrado",
+  "USER_INVALID": "Usuario no valido",
+  "EMAIL_INUSE": "Correo electrónico ya en uso",
+  "OLD_PASS_NOT_VALID": "La contraseña anterior no es válida",
+  "PASS_UPDATED": "Contraseña actualizada con éxito",
+  "INTERNAL_ERROR": "Se ha producido un error interno, los monos entrenados ya están solucionando su problema"
+}

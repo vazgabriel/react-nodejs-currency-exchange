@@ -1,0 +1,44 @@
+{
+  "name": "react-nodejs-currency",
+  "version": "1.0.0",
+  "description": "Calculate Currency Exchange",
+  "main": "src/index.ts",
+  "repository": "https://github.com/vazgabriel/react-nodejs-currency-exchange",
+  "author": "@GabrielVaz1404",
+  "license": "MIT",
+  "scripts": {
+    "tsc": "tsc",
+    "start": "set debug=* && ts-node-dev --respawn --transpileOnly ./src/index.ts",
+    "prod": "tsc && node ./build/app.js",
+    "migration:run": "ts-node ./node_modules/typeorm/cli.js migration:run"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "class-transformer": "^0.2.3",
+    "class-validator": "^0.10.2",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "helmet": "^3.21.1",
+    "i18n": "^0.8.3",
+    "jsonwebtoken": "^8.5.1",
+    "pg": "^7.12.1",
+    "reflect-metadata": "^0.1.13",
+    "ts-node-dev": "^1.0.0-pre.43",
+    "typeorm": "^0.2.19",
+    "uuid": "^3.3.3",
+    "validator": "^11.1.0"
+  },
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.2",
+    "@types/body-parser": "^1.17.1",
+    "@types/cors": "^2.8.6",
+    "@types/helmet": "^0.0.44",
+    "@types/i18n": "^0.8.6",
+    "@types/jsonwebtoken": "^8.3.4",
+    "@types/node": "^12.7.12",
+    "@types/uuid": "^3.4.5",
+    "ts-node": "^8.4.1",
+    "typescript": "^3.6.4"
+  }
+}
