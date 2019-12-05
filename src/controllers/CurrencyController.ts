@@ -52,7 +52,7 @@ export default class CurrencyController {
 
       return res.json({
         value:
-          value *
+          parseFloat(value.toFixed(4)) *
           (currencies[0].currencyDolarValue / currencies[1].currencyDolarValue),
       });
     } catch (error) {

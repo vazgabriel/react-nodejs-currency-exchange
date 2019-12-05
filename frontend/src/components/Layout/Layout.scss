@@ -1,0 +1,42 @@
+.BasePage {
+  height: 100%;
+  min-height: 100vh;
+  position: relative;
+  width: 100%;
+}
+
+.links {
+  a {
+    background-color: #007bff;
+    border-radius: 5px;
+    color: white;
+    font-size: 12pt;
+    margin: 0px 0.5rem;
+    padding: 5px 10px;
+    text-decoration: none;
+    transition: 0.3s ease-in-out;
+  }
+
+  a:hover {
+    background-color: #2b91ff;
+  }
+}
+
+main {
+  padding-bottom: 80px;
+}
+
+footer {
+  background-color: #dadada;
+  bottom: 0;
+  font-family: 'Roboto', sans-serif;
+  font-size: 14pt;
+  height: 80px;
+  padding: 20px;
+  position: absolute;
+  width: 100%;
+
+  @media (max-width: 768px) {
+    font-size: 12pt;
+  }
+}
