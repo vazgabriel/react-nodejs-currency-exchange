@@ -1,11 +1,12 @@
 import { Router } from 'express';
 import CurrencyController from '../controllers/CurrencyController';
-import { adminMiddleware, authMiddleware } from '../middlewares/AuthMiddleware';
+import { adminMiddleware } from '../middlewares/AuthMiddleware';
+import { withCache } from '../middlewares/WithCache';
 
 const router = Router();
 
 router.get('/', CurrencyController.find);
-router.get('/value', CurrencyController.getValueOf);
+router.get('/value', [withCache], CurrencyController.getValueOf);
 router.get('/:id', CurrencyController.findById);
 router.post('/', [adminMiddleware], CurrencyController.create);
 router.put('/:id', [adminMiddleware], CurrencyController.update);

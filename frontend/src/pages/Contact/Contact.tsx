@@ -1,12 +1,15 @@
-import React from 'react';
+import React, { Suspense } from 'react';
+import { Button, Col, Form, Row, Spinner } from 'react-bootstrap';
+import { useTranslation } from 'react-i18next';
 import Layout from '../../components/Layout/Layout';
-import { Form, Col, Row, Button } from 'react-bootstrap';
 
 const Contact: React.FC = () => {
+  const { t } = useTranslation();
+
   return (
     <Layout>
       <div className='my-5'>
-        <h2>Contact Money Exchange</h2>
+        <h2>{t('Contact')} Money Exchange</h2>
         <p>
           Lorem ipsum dolor, sit amet consectetur adipisicing elit. Totam odio
           officia, perspiciatis, ullam omnis sequi odit ea facilis magnam autem
@@ -18,41 +21,40 @@ const Contact: React.FC = () => {
         <Form
           onSubmit={(e: React.FormEvent) => {
             e.preventDefault();
-            console.log('here');
-            alert('Thank to contact us!');
+            alert(t('Thank to contact us!'));
           }}
         >
           <Form.Group as={Row} controlId='name'>
             <Form.Label column sm={2}>
-              Name
+              {t('Name')}
             </Form.Label>
             <Col sm={10}>
-              <Form.Control type='name' placeholder='Name' required />
+              <Form.Control type='name' placeholder={t('Name')} required />
             </Col>
           </Form.Group>
           <Form.Group as={Row} controlId='email'>
             <Form.Label column sm={2}>
-              Email
+              {t('Email')}
             </Form.Label>
             <Col sm={10}>
-              <Form.Control type='email' placeholder='Email' required />
+              <Form.Control type='email' placeholder={t('Email')} required />
             </Col>
           </Form.Group>
           <Form.Group as={Row} controlId='message'>
             <Form.Label column sm={2}>
-              Message
+              {t('Message')}
             </Form.Label>
             <Col sm={10}>
               <Form.Control
                 as='textarea'
                 rows='5'
-                placeholder='Your Message'
+                placeholder={t('Your Message')}
                 required
               />
             </Col>
           </Form.Group>
           <div className='my-3 mx-auto d-table'>
-            <Button type='submit'>Submit form</Button>
+            <Button type='submit'>{t('Submit form')}</Button>
           </div>
         </Form>
       </div>
@@ -60,4 +62,19 @@ const Contact: React.FC = () => {
   );
 };
 
-export default Contact;
+const ContactSuspense: React.FC = props => (
+  <Suspense
+    fallback={
+      <div
+        className='d-flex justify-content-center align-items-center'
+        style={{ width: '100vw', height: '100vh' }}
+      >
+        <Spinner animation='border' />
+      </div>
+    }
+  >
+    <Contact {...props} />
+  </Suspense>
+);
+
+export default ContactSuspense;

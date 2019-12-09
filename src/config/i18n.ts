@@ -3,8 +3,8 @@ import * as path from 'path';
 
 i18n.configure({
   locales: ['es-ES', 'en-US'],
-  defaultLocale: 'es-ES',
-  directory: path.resolve(__dirname, '..', 'locales'),
+  defaultLocale: 'en-US',
+  directory: path.resolve(__dirname, '..', '..', 'locales'),
 });
 
 export default i18n.init;

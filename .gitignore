@@ -1,8 +1,21 @@
+# Editor files
 .idea/
 .vscode/
+
+# Modules
 node_modules/
+
+# Build files
 build/
+
+# Temp Files
 tmp/
 temp/
+
+# Configs
 ormconfig.json
 src/config/config.ts
+
+# React Build
+public/*
+!public/.gitkeep

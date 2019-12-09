@@ -1,17 +1,16 @@
 import 'reflect-metadata';
-import * as bodyParser from 'body-parser';
-import * as cors from 'cors';
-import * as express from 'express';
-import * as helmet from 'helmet';
-import * as path from 'path';
+import bodyParser from 'body-parser';
+import path from 'path';
+import cors from 'cors';
+import express from 'express';
+import helmet from 'helmet';
 import { createConnection } from 'typeorm';
-import * as ORM_CONFIG from '../ormconfig.json';
 import i18n from './config/i18n';
 import routes from './routes';
 
 const PORT = 8080;
 
-createConnection(ORM_CONFIG)
+createConnection()
   .then(async connection => {
     // Start express app
     const app = express();
@@ -24,14 +23,18 @@ createConnection(ORM_CONFIG)
     // I18N
     app.use(i18n);
 
-    // Set Uploads as Static
-    app.use(
-      '/public',
-      express.static(path.resolve(__dirname, '..', 'public'))
-    );
-
     // Set routes
     app.use(routes);
+
+    // Static using (React frontend)
+    app.use('/', express.static(path.resolve(__dirname, '..', 'public')));
+
+    // Redirect not found routes to React index.html
+    app.use('*', (req, res) => {
+      return res.sendFile('index.html', {
+        root: path.resolve(__dirname, '..', 'public'),
+      });
+    });
 
     // start express server
     app.listen(PORT, () => {

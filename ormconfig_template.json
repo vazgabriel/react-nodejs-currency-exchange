@@ -5,14 +5,14 @@
   "username": "postgres",
   "password": "123456",
   "database": "react_node_currency",
-  "synchronize": true,
+  "synchronize": false,
   "logging": false,
-  "entities": ["src/entity/**/*.ts"],
-  "migrations": ["src/migration/**/*.ts"],
-  "subscribers": ["src/subscriber/**/*.ts"],
+  "entities": ["build/entity/**/*.js"],
+  "migrations": ["build/migration/**/*.js"],
+  "subscribers": ["build/subscriber/**/*.js"],
   "cli": {
-    "entitiesDir": "src/entity",
-    "migrationsDir": "src/migration",
-    "subscribersDir": "src/subscriber"
+    "entitiesDir": "build/entity",
+    "migrationsDir": "build/migration",
+    "subscribersDir": "build/subscriber"
   }
 }

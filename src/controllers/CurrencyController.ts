@@ -54,9 +54,15 @@ export default class CurrencyController {
         value:
           parseFloat(value.toFixed(4)) *
           (currencies[0].currencyDolarValue / currencies[1].currencyDolarValue),
+        status: 200,
       });
     } catch (error) {
-      return res.status(404).json({ message: res.__('RECORD_NOT_FOUND') });
+      console.log('error', error)
+      console.log(JSON.stringify({...error}))
+      console.log(JSON.stringify(error))
+      return res
+        .status(404)
+        .json({ message: res.__('RECORD_NOT_FOUND'), status: 404 });
     }
   };
 
