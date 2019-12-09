@@ -55,12 +55,10 @@ yarn start
 ## Testing Backend
 
 1. Build as production
-
-1. Run `yarn test` (same code for Node.js and for React.js)
+2. Run `yarn test`
 
 ```
-yarn test
-# Test React on frontend part
-cd frontend
+# Remember to use this orm config "ormconfig_template.json"
+./build.sh
 yarn test
 ```
